@@ -23,6 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CH01-1", "CH01-1\", "{BC20F
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "53592"
+		SlnRelativePath = "CH01-1\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
