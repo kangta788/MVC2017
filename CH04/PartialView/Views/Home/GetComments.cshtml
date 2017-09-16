@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PartialView.Models.Comment>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetComments</title>
+</head>
+<body>
+    <div>
+        <h1>GetComments</h1>
+
+        @*<ul>
+            @foreach (var item in Model)
+            {
+                <li>@item.ID -- @item.Subject</li>
+            }
+        </ul>*@
+
+        @Html.Partial("_CommentList")
+
+    </div>
+</body>
+</html>
+

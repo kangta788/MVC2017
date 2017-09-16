@@ -1,0 +1,10 @@
+Database-First
+
+1.Create MVC web application
+2.Create "DAL" Folder
+3.In DAL folder, create Northwind entity data model "NWModel"
+4.In Controller Folder, create "HomeController"
+5.In HomeController, Create Action => ProductByID(int Id)
+6.In HomeController, Create Action => ProductsByCategory(int Id)
+7.In ProductByID(int Id) => create Details View
+8.In ProductsByCategory(int Id) => create List View

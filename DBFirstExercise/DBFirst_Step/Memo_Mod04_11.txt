@@ -1,0 +1,10 @@
+Mod04_11 : Database-First (MVVM-ViewModel)
+
+1. copy Mod04-10 into Mod04-11
+2. In "Mod04_11" Project, create "ViewModels" Folder
+3. In "ViewModels" Folder, create "ProductViewModel"
+4. In "ProductViewModel.cs", create "ProductID","ProductName","Price" property, build project
+5. In "ProductSystem.cs", modify "GetProductByID" method, change return "ProductViewModel" type
+6. Delete "ProductByID.cshtml" view,
+   Create new view, "Details" template, "ProductViewModel" Model, clear Data Context Class 
+7. Test

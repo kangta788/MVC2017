@@ -1,0 +1,12 @@
+Mod04_12 : Database-First (MVVM-ViewModel)
+
+1. copy Mod04-11 into Mod04-12
+2. In "ViewModels" Folder, create "CategoryProductsViewModel" class
+3. In "CategoryProductsViewModel", 
+    create "CategoryID","CategoryName","Products" (IEnumerable<ProductViewModel>) property, build project
+4. build project
+5. In "ProductSystem.cs", modify "GetProductsByCategoryID" method, change return "CategoryProductsViewModel" type
+6. Delete "CategoryProductsByCategoryID.cshtml" view,
+    Create new view, "Details" template, "CategoryProductsViewModel" Model, clear Data Context Class 
+7. Modify "CategoryProductsByCategoryID.cshtml" to show Category and Products Data
+8. Test

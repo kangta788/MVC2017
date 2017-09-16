@@ -1,0 +1,9 @@
+Mod04-10 : Database-First (BLL)
+
+1. copy Mod04-09 into Mod04-10
+2. in "Models" Folder , create Business Logic Model "ProductSystem"
+3. in "ProductSystem.cs", create "GetProductByID(in Id)" Method
+4. in "ProductSystem.cs", create "GetProductsByCategoryID(in Id)" Method
+5. in "HomeController" : "ProductByID" Action, modify to use "ProductSystem" Model
+6. in "HomeController" : "ProductsByCategory" Action, modify to use "ProductSystem" Model
+7. Test
