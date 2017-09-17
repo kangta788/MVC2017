@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>No AJAX</h1>
+    @Html.ActionLink("HelloWorld Partial View", "HelloWorld")
+    @Html.ActionLink("HelloWorld2 Partial View", "HelloWorld2", new { username = "John" })
+    <hr />
+    @Html.Action("HelloWorld")
+    Server Time:@DateTime.Now
+    <hr />
+    <hr />
+
+
+
+
+
+    <h1>AJAX</h1>
+    <div id="divMM" style="background-color:yellow">---</div>
+    @Ajax.ActionLink("重新整理", "HelloWorld",
+    new AjaxOptions
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = "divMM",
+        InsertionMode = InsertionMode.ReplaceWith
+    })
+   
+    <hr />
+    <hr />
+
+
+
+
+
+    <h1>AJAX(傳參數)</h1>
+    <div id="divMM2" style="background-color:yellow">---</div>
+    @Ajax.ActionLink("重新整理", "HelloWorld2",new {username="Mary" },
+    new AjaxOptions
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = "divMM2",
+        InsertionMode = InsertionMode.ReplaceWith
+    })
+
+    <hr />
+    <hr />
+    <h1>AJAX(使用者輸入)</h1>
+    <div id="divMM3" style="background-color:yellow">---</div>
+    @using (Ajax.BeginForm("HelloWorld2", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "divMM3", InsertionMode = InsertionMode.Replace }))
+    {
+        <input type="text" name="username" />
+        <input type="submit"/>
+    }
+
+
+
+
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AjaxDemo</title>
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script>
+
+        $(function () {
+
+            $("#Button1").click(function () {
+
+                //alert("Hi, " + $("#Text1").val());
+                $.ajax({
+
+                    type: "GET",
+                    url: "/Home/HelloWorld?username=" + $("#Text1").val(),
+                    success: function (data) {
+                        //console.log(data);
+                        $("#divMessage").html(data);
+                    }
+
+
+                });
+
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <div> 
+        <h1>Ajax Demo</h1>
+
+        Username : <input id="Text1" type="text" />
+        <input id="Button1" type="button" value="AJAX" />
+        <div id="divMessage" style="background-color:yellow">...</div>
+
+    </div>
+</body>
+</html>
