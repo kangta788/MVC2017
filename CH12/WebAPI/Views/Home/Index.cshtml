@@ -1,0 +1,118 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <ul id="list"></ul>
+        <input id="Button1" type="button" value="列出所有課程" />
+
+        <hr />
+
+        <form>
+            ID:<input id="Text1" type="text" />
+            NAME:<input id="Text2" type="text" />
+            <input id="Button2" type="button" value="查詢" />
+        </form>
+
+        <hr />
+
+        <form id="form1">
+            ID:<input id="id" name="id" type="text" />
+            NAME:<input id="Name" name="Name" type="text" />
+            <input id="Button3" type="button" value="新增" />
+            <input id="Button4" type="button" value="修改" />
+            <input id="Button5" type="button" value="刪除" />
+        </form>
+
+
+    </div>
+
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+
+            //----------------------------------------------
+            $("#Button1").click(function () {
+
+                //按下去後執行
+                $("#list").empty();//先清空
+
+                //AJAX呼叫API並顯示
+                $.ajax({
+
+                    type: "GET",
+                    url: "/api/course",
+                    success: function (data) {
+                        data.forEach(function (item) {
+                            $("#list").append($("<li>").text(item.id + "---" + item.Name));
+                        });
+                    }
+                })
+            })
+
+            //----------------------------------------------
+            $("#Button2").click(function () {
+
+                $.ajax({
+
+                    type: "GET",
+                    url: "@Url.Content("~/api/course/")" + $("#Text1").val(),
+                    success: function (data) { $("#Text2").val(data.Name); }
+                    })
+                })
+
+            //----------------------------------------------
+            $("#Button3").click(function () {
+
+                $.ajax({
+
+                    type: "POST",
+                    url: "@Url.Content("~/api/course/")",
+                    data:$("#form1").serialize()
+                    })
+                })
+
+
+            //----------------------------------------------
+
+           $("#Button4").click(function () {
+
+                $.ajax({
+
+                    type: "PUT",
+                    url: "@Url.Content("~/api/course/")",
+                    data:$("#form1").serialize()
+                    })
+                })
+
+
+            //----------------------------------------------
+          $("#Button5").click(function () {
+
+                $.ajax({
+
+                    type: "DELETE",
+                    url: "@Url.Content("~/api/course/")"+$("#id").val(),
+                  
+                    })
+                })
+
+
+            //----------------------------------------------
+            })
+
+
+
+
+    </script>
+</body>
+</html>
