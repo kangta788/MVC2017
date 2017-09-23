@@ -13,21 +13,29 @@
     <script>
         $(function () {
 
+            
             $("#btnConnect").click(function () {
+
+                //1, 組好聊天室連線的網址
                 var url = "ws://localhost:61102/api/chat?username=" + $("#username").val();
+                //2, 停用連線按鈕並發出WebSocket連線
                 this.disabled = true;
                 var ws = new WebSocket(url);
 
+                //10, 開始聊天送出聊天訊息
                 $("#btnSend").click(function () {
                     ws.send($("#message").val());
                 });
 
+                //7, Client端連線成功後發送一個進入聊天室的聊天訊息
                 ws.onopen = function () {
                     ws.send("進入聊天室");
                 };
                 ws.onerror = function (e) {
                     alert(e.message);
                 }
+                //9, 收到Server端廣播的訊息後顯示在網頁上
+                //12, 收到Server端廣播的聊天訊息後顯示在網頁上
                 ws.onmessage = function (e) {
                     $("#output").append($("<li>").text(e.data));
                     console.log(e.data);
